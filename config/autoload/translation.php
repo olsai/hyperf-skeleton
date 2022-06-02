@@ -10,13 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    'scan' => [
-        'paths' => [
-            BASE_PATH . '/app',
-        ],
-        'ignore_annotations' => [
-            'mixin',
-            'required',
-        ],
-    ],
+    'locale' => 'zh_CN',
+    'fallback_locale' => 'en',
+    'path' => BASE_PATH . '/storage/languages',
 ];

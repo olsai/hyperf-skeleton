@@ -10,13 +10,11 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    'scan' => [
-        'paths' => [
-            BASE_PATH . '/app',
-        ],
-        'ignore_annotations' => [
-            'mixin',
-            'required',
-        ],
+    'log' => [
+        'enable' => true,
+        'group' => 'default',
     ],
+    'x-test-flag' => 'test-flag',
+    // 单点登录
+    'oss' => false,
 ];

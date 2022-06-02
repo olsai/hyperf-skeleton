@@ -10,13 +10,17 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    'scan' => [
-        'paths' => [
-            BASE_PATH . '/app',
-        ],
-        'ignore_annotations' => [
-            'mixin',
-            'required',
-        ],
+    // 应用端
+    'applications' => [
+        'app',
+        'platform',
+    ],
+    // 是否基于 表区分  ddd
+    'for_table_ddd' => true,
+    // 模块
+    'modules' => [
+        'Platform',
+        'System',
+        'Order',
     ],
 ];

@@ -13,6 +13,9 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=8.0",
+        "ext-json": "*",
+        "ext-bcmath": "*",
+        "hyperf-ext/jwt": "^2.2.1",
         "hyperf/cache": "~2.2.0",
         "hyperf/command": "~2.2.0",
         "hyperf/config": "~2.2.0",
@@ -24,7 +27,14 @@
         "hyperf/memory": "~2.2.0",
         "hyperf/process": "~2.2.0",
         "hyperf/database": "~2.2.0",
-        "hyperf/redis": "~2.2.0"
+        "hyperf/redis": "~2.2.0",
+        "lengbin/hyperf-auth": "dev-master",
+        "lengbin/hyperf-common": "3.0.x-dev",
+        "lengbin/hyperf-error-code": "2.0.x-dev",
+        "lengbin/php-generator": "dev-main",
+        "hashwallet/apidocs": "dev-main",
+        "hashwallet/dto": "dev-main",
+        "symfony/property-access": "^5.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -73,6 +83,10 @@
         "start": [
             "Composer\\Config::disableProcessTimeout",
             "php -d swoole.use_shortname=Off ./bin/hyperf.php start"
+        ],
+        "error": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -d swoole.use_shortname=Off ./bin/hyperf.php gen:error-code"
         ]
     }
 }
