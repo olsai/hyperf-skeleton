@@ -18,9 +18,5 @@ return [
     // 是否基于 表区分  ddd
     'for_table_ddd' => true,
     // 模块
-    'modules' => [
-        'Platform',
-        'System',
-        'Order',
-    ],
+    'modules' => [],
 ];

@@ -9,11 +9,27 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
+use Symfony\Component\Finder\Finder;
+
+$errorPaths = value(function () {
+    $path = [
+        BASE_PATH . '/vendor/lengbin/hyperf-common/src/Constants/Errors',
+    ];
+
+    $directories = Finder::create()->directories()->in([BASE_PATH . '/app'])->depth(2);
+    foreach ($directories as $directory) {
+        if ($directory->getFilename() != 'Errors') {
+            continue;
+        }
+        $path[] = $directory->getRealPath();
+    }
+    return $path;
+});
+
 return [
     // 错误码文件 目录
-    'path' => [
-        BASE_PATH . '/vendor/lengbin/hyperf-common/src/Constants/Errors',
-    ],
+    'path' => $errorPaths,
     // 合并生成 类 文件名称
     'classname' => 'Error',
     // 合并生成 类 命名空间
