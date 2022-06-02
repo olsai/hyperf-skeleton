@@ -10,10 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    'log' => [
-        'enable' => true,
-        'group' => 'default',
-    ],
+    'enable_log' => true,
     'x-test-flag' => 'test-flag',
     // 单点登录
     'oss' => false,

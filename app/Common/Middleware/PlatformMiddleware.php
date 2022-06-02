@@ -16,7 +16,6 @@ declare(strict_types=1);
  */
 namespace App\Common\Middleware;
 
-use Hyperf\Di\Annotation\Inject;
 use Lengbin\Hyperf\Auth\Exception\InvalidTokenException;
 use Lengbin\Hyperf\Auth\JwtSubject;
 use Lengbin\Hyperf\Auth\Middleware\BaseAuthMiddleware;
@@ -26,8 +25,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class PlatformMiddleware extends BaseAuthMiddleware
 {
-    #[Inject]
-    protected  $platform;
+    protected $platform;
 
     public static function getIss(): ?string
     {
@@ -38,7 +36,7 @@ class PlatformMiddleware extends BaseAuthMiddleware
     {
         $platformId = $request->getHeaderLine('x-test-platform_id');
         if (empty($platform)) {
-             throw new InvalidTokenException();
+            throw new InvalidTokenException();
         }
         return [
             'platform_id' => $platformId,

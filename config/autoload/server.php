@@ -9,7 +9,6 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-
 use Hyperf\Server\CoroutineServer;
 use Hyperf\Server\Event;
 use Hyperf\Server\Server;

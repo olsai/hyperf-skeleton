@@ -20,6 +20,7 @@ use Hyperf\ExceptionHandler\ExceptionHandler;
 use Lengbin\Hyperf\Auth\Exception\InvalidTokenException;
 use Lengbin\Hyperf\Auth\Exception\TokenExpireException;
 use Lengbin\Hyperf\Common\Constants\Errors\CommonError;
+use Lengbin\Hyperf\Common\Exceptions\BusinessException;
 use Lengbin\Hyperf\Common\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 use Throwable;
@@ -36,8 +37,9 @@ class TokenExceptionHandler extends ExceptionHandler
     public function handle(Throwable $throwable, ResponseInterface $response)
     {
         $this->stopPropagation();
-        $error = $throwable instanceof TokenExpireException ? CommonError::TOKEN_EXPIRED() : CommonError::INVALID_TOKEN();
-        return $this->response->fail($error->getValue(), $error->getMessage());
+        $errorCode = $throwable instanceof TokenExpireException ? CommonError::TOKEN_EXPIRED() : CommonError::INVALID_TOKEN();
+        $error = new BusinessException($errorCode->getValue());
+        return $this->response->fail($error->getRealCode(), $errorCode->getMessage());
     }
 
     public function isValid(Throwable $throwable): bool
