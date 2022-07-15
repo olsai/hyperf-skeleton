@@ -14,6 +14,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
 namespace App\Common\Module\Upload;
 
 use Lengbin\Common\BaseObject;
@@ -29,4 +30,9 @@ class UploadConfig extends BaseObject
      * bucket.
      */
     public string $bucket;
+
+    /**
+     * config
+     */
+    public array $public;
 }

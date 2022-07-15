@@ -12,17 +12,23 @@ declare(strict_types=1);
 namespace App\Common\Helper;
 
 use App\Common\Constants\Enums\UploadType;
-use App\Common\Module\Upload\AbstractUpload;
 use App\Common\Module\Upload\UploadFactory;
 use App\Common\Module\Upload\UploadInterface;
+use Hyperf\Di\Annotation\Inject;
 
 class ImageHelper implements UploadInterface
 {
-    protected AbstractUpload $uploader;
+
+    #[Inject]
+    protected UploadFactory $uploadFactory;
+
+    protected UploadInterface $uploader;
 
     public function __construct()
     {
-        $this->uploader = make(UploadFactory::class)->make(UploadType::ALI());
+        if (!empty($this->uploadFactory)) {
+            $this->uploader = $this->uploadFactory->make(UploadType::ALI());
+        }
     }
 
     public function makeImageUrl(string $path): string
