@@ -44,4 +44,5 @@ $daoInterface = value(function () {
 
 return array_merge($daoInterface, [
     Hyperf\Database\Commands\ModelCommand::class => Lengbin\Hyperf\Common\Commands\Model\ModelCommand::class,
+    Hyperf\Crontab\Strategy\StrategyInterface::class => Hyperf\Crontab\Strategy\CoroutineStrategy::class,
 ]);

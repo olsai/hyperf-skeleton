@@ -16,15 +16,21 @@ declare(strict_types=1);
  */
 namespace App\Common\Entity;
 
+use App\Common\Helper\ImageHelper;
+use Hyperf\Di\Annotation\Inject;
+
 class Url
 {
     public string $path;
 
     public string $url;
 
+    #[Inject()]
+    protected ImageHelper $imageHelper;
+
     public function __construct(string $path = '')
     {
         $this->path = $path;
-        $this->url = $path;
+        $this->url = $this->imageHelper->makeImageUrl($path);
     }
 }

@@ -46,7 +46,7 @@ class PlatformMiddleware extends BaseAuthMiddleware
     protected function handlePayload(ServerRequestInterface $request, JwtSubject $payload): array
     {
         $platform = $this->platform->detail([
-            '_notThrow' => true,
+            '_notThrow' => 1,
         ], [
             'platform_id' => $payload->data['sub'] ?? -1,
             'enable' => SoftDeleted::ENABLE,

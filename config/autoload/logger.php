@@ -13,13 +13,25 @@ use Lengbin\Hyperf\Common\Logs\AppendRequestIdProcessor;
 
 return [
     'default' => [
-        'handler' => [
-            'class' => Monolog\Handler\StreamHandler::class,
-            'constructor' => [
-                'stream' => 'php://stdout',
-                'level' => intval(env('LOG_LEVEL', Monolog\Logger::DEBUG)),
-            ],
-        ],
+        'handler' => value(function () {
+            if (env('APP_ENV') == 'local') {
+                return [
+                    'class' => Monolog\Handler\StreamHandler::class, 'constructor' => [
+                        'stream' => 'php://stdout',
+                        'level' => intval(env('LOG_LEVEL', Monolog\Logger::DEBUG)),
+                    ],
+                ];
+            } else {
+                return [
+                    'class' => Monolog\Handler\RotatingFileHandler::class,
+                    'constructor' => [
+                        'filename' => BASE_PATH . '/runtime/logs/run.log',
+                        'level' => intval(env('LOG_LEVEL', Monolog\Logger::DEBUG)),
+                    ],
+
+                ];
+            }
+        }),
         'formatter' => [
             'class' => Monolog\Formatter\LineFormatter::class,
             'constructor' => [
