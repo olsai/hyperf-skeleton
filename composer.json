@@ -12,9 +12,11 @@
     "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=8.0",
-        "ext-json": "*",
+        "php": ">=7.4",
         "ext-bcmath": "*",
+        "ext-json": "*",
+        "alibabacloud/client": "^1.5",
+        "easyswoole/oss": "^1.0",
         "hyperf-ext/jwt": "^2.2.1",
         "hyperf/cache": "~2.2.0",
         "hyperf/command": "~2.2.0",
@@ -33,7 +35,10 @@
         "lengbin/hyperf-error-code": "2.0.x-dev",
         "lengbin/php-generator": "dev-main",
         "hashwallet/apidocs": "dev-main",
-        "hashwallet/dto": "dev-main"
+        "hashwallet/dto": "dev-main",
+        "hyperf/async-queue": "~2.2.0",
+        "hyperf/crontab": "~2.2.0",
+        "hyperf/signal": "~2.2.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",

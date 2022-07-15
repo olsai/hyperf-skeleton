@@ -10,6 +10,6 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    Hyperf\AsyncQueue\Listener\QueueLengthListener::class,
-    Hyperf\AsyncQueue\Listener\ReloadChannelListener::class,
+    // 是否开启定时任务
+    'enable' => env("CRONTAB_ENABLE"),
 ];

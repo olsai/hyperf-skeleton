@@ -10,6 +10,8 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    Hyperf\AsyncQueue\Listener\QueueLengthListener::class,
-    Hyperf\AsyncQueue\Listener\ReloadChannelListener::class,
+    'handlers' => [
+        Hyperf\Signal\Handler\CoroutineServerStopHandler::class => PHP_INT_MIN,
+    ],
+    'timeout' => 5.0,
 ];
