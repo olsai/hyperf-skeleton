@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 namespace App\Common\Module\Upload;
 
-use App\Common\Constants\Enums\UploadType;
+use App\Common\Module\Upload\Enums\UploadType;
 use App\Common\Module\Upload\Type\UploadLocal;
 use App\Common\Module\Upload\Type\UploadOss;
 

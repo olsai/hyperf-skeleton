@@ -23,14 +23,14 @@ class Url
 {
     public string $path;
 
-    public string $url;
+    public ?string $url;
 
     #[Inject()]
-    protected ImageHelper $imageHelper;
+    protected ?ImageHelper $imageHelper = null;
 
     public function __construct(string $path = '')
     {
         $this->path = $path;
-        $this->url = $this->imageHelper->makeImageUrl($path);
+        $this->url = $this->imageHelper?->makeImageUrl($path);
     }
 }

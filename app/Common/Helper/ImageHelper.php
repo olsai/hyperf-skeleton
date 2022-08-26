@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Common\Helper;
 
-use App\Common\Constants\Enums\UploadType;
+use App\Common\Module\Upload\Enums\UploadType;
 use App\Common\Module\Upload\UploadFactory;
 use App\Common\Module\Upload\UploadInterface;
 use Hyperf\Di\Annotation\Inject;

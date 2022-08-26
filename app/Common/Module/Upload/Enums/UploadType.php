@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace App\Common\Constants\Enums;
+namespace App\Common\Module\Upload\Enums;
 
 use Lengbin\Hyperf\ErrorCode\BaseEnum;
 

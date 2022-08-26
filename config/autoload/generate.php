@@ -16,7 +16,7 @@ return [
         'platform',
     ],
     // 是否基于 表区分  ddd
-    'for_table_ddd' => true,
+    'for_table_ddd' => false,
     // 模块
     'modules' => [],
 ];
