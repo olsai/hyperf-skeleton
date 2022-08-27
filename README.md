@@ -75,7 +75,7 @@
 ## 安装
 
 ```php
-composer create-project hashwallet/hyperf-skeleton:3.1.x-dev demo
+composer create-project hashwallet/hyperf-skeleton demo
 ```
 > 当前这个骨架 是 hyperf 2.2 版本， php8
 
