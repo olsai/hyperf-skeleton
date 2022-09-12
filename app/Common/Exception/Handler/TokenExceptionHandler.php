@@ -38,7 +38,8 @@ class TokenExceptionHandler extends ExceptionHandler
     {
         $this->stopPropagation();
         $errorCode = $throwable instanceof TokenExpireException ? CommonError::TOKEN_EXPIRED() : CommonError::INVALID_TOKEN();
-        return $this->response->fail($errorCode);
+        $error = new BusinessException($errorCode);
+        return $this->response->fail($error->getCode(), $error->getMessage());
     }
 
     public function isValid(Throwable $throwable): bool
