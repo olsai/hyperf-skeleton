@@ -10,25 +10,12 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use Hyperf\Di\ReflectionManager;
-use Symfony\Component\Finder\Finder;
 
 $daoInterface = value(function () {
-    $dirs = [
-        '/Service',
-        '/Repository/Dao/MySQL',
+    $paths = [
+        BASE_PATH . '/app/Service',
+        BASE_PATH . '/app/Repository/Dao/MySQL',
     ];
-    $paths = [];
-    $directories = Finder::create()->directories()->in([BASE_PATH . '/app'])->depth(0);
-    foreach ($directories as $directory) {
-        foreach ($dirs as $dir) {
-            if (is_dir($path = $directory->getRealPath() . $dir)) {
-                $paths[] = $path;
-            }
-        }
-    }
-    if (empty($paths)) {
-        return [];
-    }
     $result = ReflectionManager::getAllClasses($paths);
     $output = [];
     foreach ($result as $class) {
