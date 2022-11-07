@@ -12,8 +12,7 @@ declare(strict_types=1);
 
 use Lengbin\Hyperf\Common\Logs\AppendRequestIdProcessor;
 
-return [
-    return value(function () {
+return value(function () {
         $data = [
             'default',
         ];
@@ -58,4 +57,3 @@ return [
         }
         return $result;
     });
-];
