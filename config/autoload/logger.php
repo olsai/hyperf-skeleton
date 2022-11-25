@@ -34,6 +34,7 @@ return value(function () {
                                 'constructor' => [
                                     'filename' => BASE_PATH . "/runtime/logs/{$item}.log",
                                     'level' => intval(env('LOG_LEVEL', Monolog\Logger::DEBUG)),
+                                    'maxFiles' => 3
                                 ],
 
                             ];
