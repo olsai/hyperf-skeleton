@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'secret' => env('JWT_SECRET'),
+    'secret' => \Hyperf\Support\env('JWT_SECRET'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
         |
         */
 
-        'public' => env('JWT_PUBLIC_KEY'),
+        'public' => \Hyperf\Support\env('JWT_PUBLIC_KEY'),
 
         /*
         |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
         |
         */
 
-        'private' => env('JWT_PRIVATE_KEY'),
+        'private' => \Hyperf\Support\env('JWT_PRIVATE_KEY'),
 
         /*
         |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
         |
         */
 
-        'passphrase' => env('JWT_PASSPHRASE'),
+        'passphrase' => \Hyperf\Support\env('JWT_PASSPHRASE'),
     ],
 
     /*
@@ -99,7 +99,7 @@ return [
     |
     */
 
-    'ttl' => (int) env('JWT_TTL', 3600 * 2),
+    'ttl' => (int) \Hyperf\Support\env('JWT_TTL', 3600 * 2),
 
     /*
     |--------------------------------------------------------------------------
@@ -118,7 +118,7 @@ return [
     |
     */
 
-    'refresh_ttl' => (int) env('JWT_REFRESH_TTL', 3600 * 24 * 14),
+    'refresh_ttl' => (int) \Hyperf\Support\env('JWT_REFRESH_TTL', 3600 * 24 * 14),
 
     /*
     |--------------------------------------------------------------------------
@@ -131,7 +131,7 @@ return [
     |
     */
 
-    'algo' => env('JWT_ALGO', 'HS512'),
+    'algo' => \Hyperf\Support\env('JWT_ALGO', 'HS512'),
 
     /*
     |--------------------------------------------------------------------------
@@ -205,7 +205,7 @@ return [
     |
     */
 
-    'leeway' => (int) env('JWT_LEEWAY', 0),
+    'leeway' => (int) \Hyperf\Support\env('JWT_LEEWAY', 0),
 
     /*
     |--------------------------------------------------------------------------
@@ -217,7 +217,7 @@ return [
     |
     */
 
-    'blacklist_enabled' => env('JWT_BLACKLIST_ENABLED', true),
+    'blacklist_enabled' => \Hyperf\Support\env('JWT_BLACKLIST_ENABLED', true),
 
     /*
     | -------------------------------------------------------------------------
@@ -232,7 +232,7 @@ return [
     |
     */
 
-    'blacklist_grace_period' => (int) env('JWT_BLACKLIST_GRACE_PERIOD', 0),
+    'blacklist_grace_period' => (int) \Hyperf\Support\env('JWT_BLACKLIST_GRACE_PERIOD', 0),
 
     /*
     |--------------------------------------------------------------------------

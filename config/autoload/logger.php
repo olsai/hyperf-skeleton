@@ -20,12 +20,12 @@ return value(function () {
         foreach ($data as $item) {
             $result[$item] = value(function () use ($item) {
                 return [
-                    'handler' => value(function () use ($item) {
-                        if (env('APP_ENV') == 'local') {
+                    'handler' => \Hyperf\Support\value(function () use ($item) {
+                        if (\Hyperf\Support\env('APP_ENV') == 'local') {
                             return [
                                 'class' => Monolog\Handler\StreamHandler::class, 'constructor' => [
                                     'stream' => 'php://stdout',
-                                    'level' => intval(env('LOG_LEVEL', Monolog\Logger::DEBUG)),
+                                    'level' => intval(\Hyperf\Support\env('LOG_LEVEL', Monolog\Logger::DEBUG)),
                                 ],
                             ];
                         } else {
@@ -33,7 +33,7 @@ return value(function () {
                                 'class' => Monolog\Handler\RotatingFileHandler::class,
                                 'constructor' => [
                                     'filename' => BASE_PATH . "/runtime/logs/{$item}.log",
-                                    'level' => intval(env('LOG_LEVEL', Monolog\Logger::DEBUG)),
+                                    'level' => intval(\Hyperf\Support\env('LOG_LEVEL', Monolog\Logger::DEBUG)),
                                     'maxFiles' => 3
                                 ],
 

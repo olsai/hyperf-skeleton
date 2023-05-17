@@ -29,8 +29,8 @@ class UploadFactory
 
     public function make(UploadType $uploadType, ?array $config = null): UploadInterface
     {
-        $class = make(self::MAP[$uploadType->getValue()]);
-        $config = $config ?? config("{$uploadType->getValue()}.oss");
+        $class = \Hyperf\Support\make(self::MAP[$uploadType->getValue()]);
+        $config = $config ?? \Hyperf\Config\config("{$uploadType->getValue()}.oss");
         $config['domain'] = $config['public']['domain'];
         $config['bucket'] = $config['public']['bucket'];
 

@@ -16,7 +16,7 @@ return [
             'bucket' => '/upload',
             'upload_time' => 5,
             'remove_file_time' => 24 * 3600,
-            'domain' => env('HOST', 'http://127.0.0.1:9501'),
+            'domain' => \Hyperf\Support\env('HOST', 'http://127.0.0.1:9501'),
         ],
     ],
 ];
