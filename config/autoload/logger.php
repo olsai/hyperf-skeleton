@@ -15,6 +15,7 @@ use Lengbin\Hyperf\Common\Logs\AppendRequestIdProcessor;
 return value(function () {
         $data = [
             'default',
+            'error'
         ];
         $result = [];
         foreach ($data as $item) {
